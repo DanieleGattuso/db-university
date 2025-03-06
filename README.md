@@ -13,7 +13,12 @@ WHERE cfu > 11
 FROM students
 WHERE timestampdiff(year,date_of_birth,CURDATE())>30
 
-SELECT * 
+4# SELECT * 
 FROM courses 
 WHERE period = 'I semestre' 
 AND year = 1;
+
+5# SELECT * 
+FROM exams
+WHERE HOUR(hour) >= 14
+AND date = '20/06/2020';
