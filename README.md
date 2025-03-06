@@ -12,3 +12,8 @@ WHERE cfu > 11
 3# SELECT*
 FROM students
 WHERE timestampdiff(year,date_of_birth,CURDATE())>30
+
+SELECT * 
+FROM courses 
+WHERE period = 'I semestre' 
+AND year = 1;
