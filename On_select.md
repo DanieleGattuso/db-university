@@ -22,3 +22,15 @@ AND year = 1;
 FROM exams
 WHERE HOUR(hour) >= 14
 AND date = '20/06/2020';
+
+6# SELECT * 
+FROM degrees
+WHERE level = 'magistrale'
+
+7# SELECT * 
+FROM departments
+
+8# SELECT * 
+FROM teachers
+WHERE phone IS NULL
+
