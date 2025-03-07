@@ -1,0 +1,69 @@
+1#
+SELECT 
+	students.id AS id_studente,
+    students.name AS nome,
+    students.surname AS cognome,
+    degrees.name AS corso_di_laurea
+FROM students
+JOIN degrees ON students.degree_id = degrees.id
+WHERE degrees.name = 'Corso di Laurea in Economia';
+
+2#
+Neuroscienze
+SELECT
+	degrees.name AS corso_di_laurea,
+    degrees.level,
+    departments.name AS dipartimento
+FROM degrees
+JOIN departments ON degrees.department_id = departments.id
+WHERE departments.name = 'Dipartimento di Neuroscienze' 
+AND degrees.level = 'magistrale';
+
+3#
+SELECT
+	teachers.id AS id_teacher,
+	teachers.name,
+    teachers.surname,
+    courses.name AS nome_corso
+FROM teachers
+JOIN course_teacher ON teachers.id = course_teacher.teacher_id
+JOIN courses ON courses.id = course_teacher.course_id
+WHERE teachers.id = 44
+
+4#
+sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e
+nome
+SELECT 
+	students.registration_number AS student_code,
+	students.surname,
+    students.name,
+    degrees.name AS degrees,
+    departments.name AS department    
+FROM students
+JOIN degrees ON students.degree_id = degrees.id
+JOIN departments ON degrees.department_id = departments.id
+ORDER BY students.surname, students.name ASC
+
+5#
+SELECT
+	degrees.name AS corsi_di_laurea,
+    courses.name AS corso,
+    teachers.name AS nome_insegante,
+    teachers.surname AS cognome_insegnante
+FROM degrees
+JOIN courses ON degrees.id = courses.degree_id
+JOIN course_teacher ON courses.id = course_teacher.course_id
+JOIN teachers ON teachers.id = course_teacher.teacher_id
+
+6#
+Matematica (54)
+SELECT DISTINCT
+    teachers.name AS nome_insegnante,
+    teachers.surname AS cognome_insegnante,
+    departments.name AS dipartimento
+FROM teachers
+JOIN course_teacher ON teachers.id = course_teacher.teacher_id
+JOIN courses ON courses.id = course_teacher.course_id
+JOIN degrees ON degrees.id = courses.degree_id
+JOIN departments On departments.id = degrees.department_id
+WHERE departments.name = 'Dipartimento di Matematica'
